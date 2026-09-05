@@ -1,0 +1,7 @@
+id,entreprise,secteur,ville,contact,email,telephone,statut,score,cite_par_ia,concurrents_cites,date_qualification,date_contact,date_relance_1,date_relance_2,date_reponse,notes
+P0001,Plomberie Durand,plombier,Orleans,M. Durand,contact@plomberie-durand.fr,0238000001,brouillon,100,non,Plomberie Martin | SOS Plombier Orleans | Eau & Cie,2026-09-01,,,,,
+P0002,Cabinet Dentaire Sud,dentiste,Orleans,Dr Bernard,contact@dentaire-sud.fr,0238000002,relance_1,70,oui,Centre Dentaire Loire | Cabinet Jeanne d'Arc,2026-08-28,2026-08-30,2026-09-05,,,
+P0003,Garage Lefevre,garagiste,Orleans,M. Lefevre,,0238000003,relance_2,50,non,Garage Central | AD Orleans,2026-08-25,2026-08-24,2026-08-28,2026-09-05,,
+P0004,Scierie du Loiret,scierie,Orleans,,,0238000004,a_qualifier,,,,,,,,,
+P0005,Institut Belle Vue,institut de beaute,Orleans,Mme Roux,contact@bellevue.fr,0238000005,a_qualifier,,,,,,,,,
+P0006,Hotel des Cedres,hotellerie,Orleans,,,0238000006,a_qualifier,,,,,,,,,

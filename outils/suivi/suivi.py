@@ -6,7 +6,7 @@ Deux fichiers CSV, tenus a la main (5 min le lundi soir) :
 
 Usage :
     python outils/suivi/suivi.py            # tableau de bord
-    python outils/suivi/suivi.py --init     # cree les CSV d'exemple
+    python outils/suivi/suivi.py --init     # cree les CSV si absents
 """
 
 from __future__ import annotations
@@ -16,7 +16,8 @@ import csv
 from datetime import date
 from pathlib import Path
 
-RACINE = Path(__file__).parent
+# Source unique de verite : donnees/, alimente et tenu a jour par l'agent.
+RACINE = Path(__file__).resolve().parent.parent.parent / "donnees"
 PROSPECTS = RACINE / "prospects.csv"
 CLIENTS = RACINE / "clients.csv"
 
@@ -80,7 +81,11 @@ def tableau_de_bord() -> None:
     clients = _lire(CLIENTS)
 
     if not prospects and not clients:
-        print("Aucune donnee. Lance : python outils/suivi/suivi.py --init")
+        print(
+            "donnees/prospects.csv est vide.\n"
+            "L'agent ne peut pas inventer des entreprises : ajoute des lignes\n"
+            "(format dans donnees/exemple-prospects.csv), et il fera le reste."
+        )
         return
 
     print(f"\n=== TABLEAU DE BORD — {date.today().strftime('%d/%m/%Y')} ===\n")

@@ -1,0 +1,4 @@
+# Ce dossier EST versionne : c'est la memoire de l'agent entre deux executions
+# sur GitHub Actions. Il contient des donnees personnelles de prospects.
+#
+# => LE DEPOT DOIT ETRE PRIVE. Les workflows refusent de tourner sinon.

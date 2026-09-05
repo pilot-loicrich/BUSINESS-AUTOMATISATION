@@ -1,0 +1,60 @@
+name: Agent — quotidien
+
+# 06:00 UTC = 08:00 Paris en ete, 07:00 en hiver.
+# GitHub Actions ne connait que UTC : la cadence est volontairement large
+# (une fois par jour) pour que le decalage saisonnier soit sans effet.
+on:
+  schedule:
+    - cron: "0 6 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  garde:
+    # Les CSV de donnees contiennent des donnees personnelles de prospects.
+    # L'agent refuse de s'executer sur un depot public.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifier que le depot est prive
+        run: |
+          if [ "${{ github.event.repository.private }}" != "true" ]; then
+            echo "::error::Depot PUBLIC. L'agent manipule des donnees personnelles"
+            echo "::error::(prospects, clients). Passe le depot en prive avant de l'activer."
+            exit 1
+          fi
+          echo "Depot prive : execution autorisee."
+
+  agent:
+    needs: garde
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dependances
+        run: pip install -r requirements.txt
+
+      - name: Qualifier, rediger, relancer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENT_VILLE: ${{ vars.AGENT_VILLE || 'Orleans' }}
+          AGENT_EXPLOITANT: ${{ vars.AGENT_EXPLOITANT }}
+          AGENT_AUDITS_PAR_JOUR: ${{ vars.AGENT_AUDITS_PAR_JOUR || '8' }}
+        run: python -m agent quotidien
+
+      - name: Enregistrer le travail produit
+        run: |
+          git config user.name  "agent-automatisation"
+          git config user.email "actions@github.com"
+          git add donnees sorties
+          if git diff --staged --quiet; then
+            echo "Rien de nouveau."
+          else
+            git commit -m "agent : lot quotidien du $(date +%d/%m/%Y)"
+            git push
+          fi

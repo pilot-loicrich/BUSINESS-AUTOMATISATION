@@ -1,0 +1,67 @@
+name: Agent — rapports clients et facturation
+
+# Le 1er de chaque mois a 06:00 UTC.
+# C'est la tache qui rend l'abonnement recurrent reellement passif.
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  garde:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifier que le depot est prive
+        run: |
+          if [ "${{ github.event.repository.private }}" != "true" ]; then
+            echo "::error::Depot PUBLIC — execution refusee."
+            exit 1
+          fi
+
+  mensuel:
+    needs: garde
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: Rapports clients et factures
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENT_EXPLOITANT: ${{ vars.AGENT_EXPLOITANT }}
+          AGENT_SIRET: ${{ secrets.AGENT_SIRET }}
+        run: python -m agent mensuel
+
+      - name: Enregistrer et notifier
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name  "agent-automatisation"
+          git config user.email "actions@github.com"
+          git add donnees sorties
+          git diff --staged --quiet || {
+            git commit -m "agent : rapports et factures $(date +%m/%Y)"
+            git push
+          }
+          NB_RAPPORTS=$(ls sorties/rapports-clients/*$(date +%Y-%m)* 2>/dev/null | wc -l)
+          NB_FACTURES=$(ls sorties/factures/ 2>/dev/null | wc -l)
+          cat > /tmp/corps.md <<CORPS
+          $NB_RAPPORTS rapport(s) client et les factures du mois sont prets dans le dossier sorties/.
+
+          **Action requise :** relire, exporter en PDF, envoyer aux clients.
+
+          C'est la seule chose qui reste manuelle sur le recurrent — 20 minutes par mois.
+          CORPS
+          sed -i 's/^          //' /tmp/corps.md
+          gh issue create \
+            --title "A envoyer — rapports et factures $(date +%m/%Y)" \
+            --body-file /tmp/corps.md

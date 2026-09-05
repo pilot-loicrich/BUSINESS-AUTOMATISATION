@@ -1,0 +1,65 @@
+name: Agent — briefing hebdomadaire
+
+# 16:00 UTC le lundi = 18:00 Paris en ete, 17:00 en hiver.
+# Cale avant le creneau de prospection de 20h.
+on:
+  schedule:
+    - cron: "0 16 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  garde:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifier que le depot est prive
+        run: |
+          if [ "${{ github.event.repository.private }}" != "true" ]; then
+            echo "::error::Depot PUBLIC — execution refusee."
+            exit 1
+          fi
+
+  briefing:
+    needs: garde
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: Construire le briefing
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENT_EXPLOITANT: ${{ vars.AGENT_EXPLOITANT }}
+        run: python -m agent briefing
+
+      - name: Ouvrir l'issue de briefing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # L'issue declenche la notification GitHub par courriel : pas besoin
+          # de configurer un SMTP pour recevoir le briefing.
+          gh issue create \
+            --title "Briefing — semaine du $(date +%d/%m/%Y)" \
+            --body-file sorties/briefing-courant.md \
+            --label "briefing" || \
+          gh issue create \
+            --title "Briefing — semaine du $(date +%d/%m/%Y)" \
+            --body-file sorties/briefing-courant.md
+
+      - name: Enregistrer le briefing
+        run: |
+          git config user.name  "agent-automatisation"
+          git config user.email "actions@github.com"
+          git add sorties
+          git diff --staged --quiet || {
+            git commit -m "agent : briefing du $(date +%d/%m/%Y)"
+            git push
+          }

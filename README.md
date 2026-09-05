@@ -90,17 +90,39 @@ Le setup (490 € + 350 €) rapporte en plus **1 680 € de one-shot** pendant 
 4. **`docs/scripts-prospection.md`** — mails, DM LinkedIn et script téléphonique prêts à copier.
 5. **`outils/`** — le code qui tourne dès maintenant.
 
-## 5. Outils livrés
+## 5. L'agent d'automatisation
+
+`agent/` tourne sur **GitHub Actions** — donc sans toi, et même quand ton PC est éteint (utile en poste de nuit).
+
+| Il fait seul | Il ne fait pas |
+|--------------|----------------|
+| Auditer les prospects (GEO) et les prioriser | **Trouver** les prospects — tu remplis le CSV |
+| Rédiger les courriels de premier contact | Les envoyer (relecture de 20 s, délibérément) |
+| Détecter et préparer les relances J+3 / J+10 | Passer les appels, tenir les RDV, signer |
+| **Produire les rapports clients mensuels** | Livrer un setter IA chez un nouveau client |
+| Émettre les factures | |
+| Te briefer le lundi avant le créneau de 20 h | |
+
+La ligne qui compte est celle des **rapports clients** : c'est elle qui décide si tes 190 €/mois sont un revenu récurrent ou un deuxième emploi. Sans elle, 4 clients = 4 rapports à écrire chaque mois, indéfiniment.
+
+Coût : **~7 €/mois** d'API, pour supprimer ~5 h de travail hebdomadaire.
+
+**Mise en service et garde-fous : `agent/README.md`.**
+⚠️ Le dépôt doit être **privé** — les workflows refusent de tourner sinon.
+
+## 6. Outils livrés
 
 | Outil | Ce qu'il fait |
 |-------|---------------|
+| `agent/` | L'automatisation complète (voir ci-dessus) |
 | `outils/geo-audit/` | Génère un rapport d'audit GEO vendable (350 €) pour une entreprise, en une commande. C'est ton argument de vente n°1. |
 | `outils/setter-ia/` | Squelette FastAPI d'agent WhatsApp : qualification, réponse, prise de RDV. Ta base de livraison client. |
-| `outils/suivi/` | Tracker de revenus et de pipeline. Sert aussi de justificatif comptable micro-entreprise. |
-| `templates/` | Devis, facture conforme micro-entreprise, contrat de prestation. |
+| `outils/suivi/` | Tableau de bord local (revenus, pipeline), branché sur l'état de l'agent. |
+| `templates/` | Devis et facture conformes micro-entreprise. |
+| `donnees/` | L'état de l'agent entre deux exécutions. **Données personnelles — dépôt privé obligatoire.** |
 
 ---
 
-## 6. Avertissement
+## 7. Avertissement
 
 Ce dépôt est un plan d'affaires, pas un conseil juridique, fiscal ou comptable. Les seuils et taux cités dans `docs/00-cadre-legal.md` sont indicatifs et évoluent chaque année : **vérifie-les sur `urssaf.fr`, `entreprendre.service-public.fr` et `impots.gouv.fr` avant de t'engager**, et fais valider ton cumul d'activité par le service RH du CNPF.
