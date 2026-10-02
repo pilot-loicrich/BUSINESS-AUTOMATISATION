@@ -26,7 +26,7 @@ Objectif : être **prêt à vendre**, pas encore vendre.
 | Sem. | Tâches |
 |------|--------|
 | **S1** | ☐ Lire `00-cadre-legal.md` en entier<br>☐ Relire les contrats CNPF **et** Novotel (clause d'exclusivité)<br>☐ Envoyer le mail d'information aux RH du CNPF<br>☐ Déclarer la micro-entreprise sur `formalites.entreprises.gouv.fr`<br>☐ Forker `chatbot-rag` → `setter-ia`, corpus plombier fictif<br>☐ **Enregistrer la démo de 90 secondes** |
-| **S2** | ☐ Lancer `geo-audit` sur 3 entreprises réelles d'Orléans → 3 rapports<br>☐ Construire le fichier de **60 prospects** (voir ci-dessous)<br>☐ Préparer les modèles de devis et facture (`templates/`)<br>☐ Ouvrir le compte bancaire dédié<br>☐ Démarrer le clipping (2 campagnes) |
+| **S2** | ☐ Lancer `geo-audit` sur 3 entreprises réelles d'Orléans → 3 rapports<br>☐ Construire le fichier de **60 prospects** (voir ci-dessous)<br>☐ Préparer les modèles de devis et facture (`templates/`)<br>☐ Ouvrir le compte bancaire dédié<br>☐ Démarrer le clipping (2 campagnes)<br>☐ *Imprimante 3D commandée : déballer, mais **ne pas imprimer** avant que le mail RH, la déclaration et les 60 prospects soient faits (`08-impression-3d-fichiers.md` §6)* |
 
 ### Constituer le fichier de 60 prospects
 

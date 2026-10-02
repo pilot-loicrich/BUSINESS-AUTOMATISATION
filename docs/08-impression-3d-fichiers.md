@@ -2,7 +2,8 @@
 
 > Issue de la **2ᵉ vidéo de Yomi Denzel** (7 machines physiques), business n°2 — l'imprimante 3D.
 > Rôle dans le portefeuille : **actif de fond du dimanche**, en remplacement du clipping (fiche `07`).
-> ⚠️ Ce n'est **pas** une priorité. Lis la section 9 avant de commander quoi que ce soit.
+> ⚠️ Ce n'est **pas** une priorité : la section 10 dit pourquoi.
+> **Quoi commander et dans quel ordre : section 6.**
 
 ---
 
@@ -132,7 +133,61 @@ Ce qui est solide dans ce business, ce n'est pas le plafond : c'est le **planche
 
 ---
 
-## 6. Le déroulé réaliste
+## 6. Quelle machine commander
+
+### La recommandation : Bambu Lab A1 mini (~200–250 €)
+
+| Critère | A1 mini | Creality Ender 3 V3 SE |
+|---|---|---|
+| Montage | Pré-assemblée, imprime en 20 min | À monter, 1–2 h |
+| Calibration | Automatique | Manuelle, à refaire régulièrement |
+| Temps de mise au point | ~1 soirée | **~10 h de réglages** |
+| Bruit | Supportable en chambre | Plus bruyant |
+| Prix | ~200–250 € | ~180 € |
+
+**Prends l'A1 mini.** Ta contrainte n'est pas l'argent, c'est le temps : payer 50 € de plus pour t'épargner 10 h de réglages est évidemment rentable quand tu as 5 à 10 h par semaine au total. L'Ender est un meilleur achat pour quelqu'un qui a du temps et veut apprendre la mécanique — ce n'est pas ton cas.
+
+### Le volume d'impression : 180 mm suffit
+
+Le catalogue complet du générateur tient dans le plus petit volume :
+
+| | Cote max du catalogue | A1 mini (180³) |
+|---|---|---|
+| X | 150 mm | ✅ |
+| Y | 100 mm | ✅ |
+| Z | 70 mm | ✅ |
+
+**Ne surpaie pas pour un plus grand volume.** Si un jour tu veux des bacs plus grands, tu rachèteras une machine avec le chiffre d'affaires, pas avec ton salaire d'apprenti.
+
+### La liste de commande
+
+| Article | Budget |
+|---|---|
+| Bambu Lab A1 mini | ~200–250 € |
+| 2 bobines de **PLA** (une noire, une couleur) | ~40 € |
+| **Total** | **~250–290 €** |
+
+### Ce qu'il ne faut PAS acheter
+
+- **Pas d'ABS ni d'ASA.** Ces matières émettent des composés irritants et demandent une enceinte ventilée. Tu imprimes dans un logement : **PLA uniquement**, éventuellement PETG plus tard.
+- **Pas d'imprimante résine.** Résine toxique au contact, gants obligatoires, station de lavage et de post-durcissement, odeurs fortes. Inadapté à un logement et hors sujet pour des bacs de rangement.
+- **Pas d'enceinte, pas de buses supplémentaires, pas d'AMS** au début. Le PLA n'en a pas besoin, et chaque accessoire acheté avant le premier euro encaissé est de la trésorerie immobilisée.
+
+### La règle de séquencement
+
+La machine va arriver pendant les semaines 1–2 — exactement la phase la plus ingrate du plan : relire des contrats, déclarer la micro-entreprise, constituer un fichier de 60 prospects. Un jouet neuf sur le bureau à ce moment-là, c'est le risque réel de ce business, et il est comportemental, pas technique.
+
+> **Règle : tu déballes la machine, mais la première impression n'a lieu qu'une fois ces trois cases cochées :**
+>
+> - [ ] mail d'information envoyé aux RH du CNPF
+> - [ ] micro-entreprise déclarée sur `formalites.entreprises.gouv.fr`
+> - [ ] 60 prospects listés dans `donnees/prospects.csv`
+>
+> La première impression est la récompense, pas la distraction.
+
+---
+
+## 7. Le déroulé réaliste
 
 | Phase | Quoi | Revenu attendu |
 |---|---|---|
@@ -146,7 +201,7 @@ Oui, tu vends des objets **au début** — mais comme un moyen, pas comme le mod
 
 ---
 
-## 7. Le créneau horaire
+## 8. Le créneau horaire
 
 **Dimanche 18 h–20 h, 2 h.** Le même créneau que celui prévu pour l'annuaire IA dans `planning-90-jours.md`.
 
@@ -156,7 +211,7 @@ L'impression tourne pendant que tu es au CNPF ou en garde de nuit. C'est tout l'
 
 ---
 
-## 8. L'outil livré
+## 9. L'outil livré
 
 `outils/modeles-3d/` — générateur paramétrique testé, voir son `README.md`.
 
@@ -171,7 +226,7 @@ Produit pour chaque variante : le `.stl` (binaire, validé), une fiche `.md` pr�
 
 ---
 
-## 9. Notes — et la priorité
+## 10. Notes — et la priorité
 
 | Critère | Note | Commentaire |
 |---|---|---|
