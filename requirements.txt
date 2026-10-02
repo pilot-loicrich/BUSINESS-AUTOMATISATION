@@ -1,1 +1,6 @@
 anthropic>=1.0
+
+# Business n°8 — generateur de modeles 3D (outils/modeles-3d).
+# Dependance lourde (~500 Mo) et independante de l'agent : installe-la
+# separement plutot que de l'imposer aux workflows.
+# cadquery>=2.8
