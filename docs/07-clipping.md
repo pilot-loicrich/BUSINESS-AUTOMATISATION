@@ -2,6 +2,8 @@
 
 > Idée n°2 de la vidéo. **Revenu tampon, zéro euro, zéro compétence nouvelle.** Le seul business de la liste qui se pratique littéralement pendant tes gardes de nuit.
 
+> **Sortie de GTA 6 (19 novembre 2026) :** le mode d'emploi pas à pas est dans `09-vague-gta6-clipping.md`.
+
 ## Pourquoi il est dans ta liste malgré un potentiel faible
 
 Il coche une case qu'aucun autre ne coche : il se fait **sur des temps déjà perdus**.

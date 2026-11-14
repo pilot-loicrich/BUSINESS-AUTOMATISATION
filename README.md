@@ -30,7 +30,7 @@ Sur les 25 idées de la 1ʳᵉ vidéo (+ les 7 machines physiques de la 2ᵉ), j
 | 4 | [Agence UGC IA](docs/04-agence-ugc-ia.md) | n°4 | Upsell volume | Oui | 390–690 €/mois |
 | 5 | [Micro-SaaS IA de niche](docs/05-micro-saas-ia.md) | n°19/20/22 | Actif long terme | Oui | 9–29 €/mois × N |
 | 6 | [Annuaire IA francophone](docs/06-annuaire-ia.md) | n°23 | Actif SEO/GEO | Oui | Listing + affiliation |
-| 7 | [Clipping](docs/07-clipping.md) | n°2 | Tampon 0 € — *remplaçable par le n°8* | Non | ~1–2 $/1000 vues |
+| 7 | [Clipping](docs/07-clipping.md) — **[tuto vague GTA 6](docs/09-vague-gta6-clipping.md)** | n°2 | Tampon 0 € — *remplaçable par le n°8* | Non | ~1 $/1000 vues |
 | 8 | [Modèles 3D paramétriques](docs/08-impression-3d-fichiers.md) | **2ᵉ vidéo**, n°2 | Actif de fond (dimanche) | Oui | abonnement 5 €/mois × N |
 
 ### L'insight qui change tout
@@ -119,6 +119,7 @@ Coût : **~7 €/mois** d'API, pour supprimer ~5 h de travail hebdomadaire.
 | `outils/geo-audit/` | Génère un rapport d'audit GEO vendable (350 €) pour une entreprise, en une commande. C'est ton argument de vente n°1. |
 | `outils/setter-ia/` | Squelette FastAPI d'agent WhatsApp : qualification, réponse, prise de RDV. Ta base de livraison client. |
 | `outils/modeles-3d/` | Générateur paramétrique : 129 modèles 3D + leurs fiches d'annonce en une commande. |
+| `outils/clipping/` | Suivi des clips : gain par campagne, gain horaire, décision à J+14. |
 | `outils/suivi/` | Tableau de bord local (revenus, pipeline), branché sur l'état de l'agent. |
 | `templates/` | Devis et facture conformes micro-entreprise. |
 | `donnees/` | L'état de l'agent entre deux exécutions. **Données personnelles — dépôt privé obligatoire.** |
