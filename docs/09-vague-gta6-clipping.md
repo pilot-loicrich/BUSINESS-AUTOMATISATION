@@ -24,6 +24,8 @@ Donc, à 1 $ les 1 000 vues :
 
 La distribution est très inégale : la plupart des clips font quelques centaines de vues, un sur plusieurs dizaines décolle. Ton levier est le **volume régulier pendant le pic**, pas le clip parfait.
 
+> La configuration détaillée de la chaîne YouTube est dans **`10-chaine-youtube-configuration.md`**.
+
 ---
 
 ## 1. Aujourd'hui — mise en place (2 h)
@@ -181,6 +183,7 @@ Le seuil se change avec `--seuil`. Il est volontairement modeste : c'est le nive
 - **Uniquement dans le cadre d'une campagne** qui t'autorise à utiliser le contenu du streamer. Hors campagne, découper le contenu de quelqu'un t'expose à une réclamation.
 - **Aucune image du jeu avant le 19** : les séquences issues de copies fuitées sont retirées.
 - **Pas de cinématiques isolées** : Rockstar fait retirer les vidéos qui ne montrent que les scènes d'histoire. Clippe du jeu et des réactions.
+- **La politique de Rockstar vise l'usage non commercial** des images de ses jeux : un clip payé aux vues est une zone grise, et l'accord d'un streamer ne couvre pas les images de l'éditeur. Une réclamation peut te faire perdre un clip ; détail et parades dans `10-chaine-youtube-configuration.md` §5 bis.
 - **Apporte quelque chose** : accroche, cadrage, sous-titres. Un extrait brut republié est classé « contenu non original » et peu diffusé.
 - **Pendant tes gardes au Novotel**, seulement si ton poste le permet réellement (`00-cadre-legal.md` §2).
 - **Comptes sans lien** avec ton identité professionnelle.
