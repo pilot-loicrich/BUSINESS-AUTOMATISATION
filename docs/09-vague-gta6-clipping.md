@@ -24,7 +24,7 @@ Donc, à 1 $ les 1 000 vues :
 
 La distribution est très inégale : la plupart des clips font quelques centaines de vues, un sur plusieurs dizaines décolle. Ton levier est le **volume régulier pendant le pic**, pas le clip parfait.
 
-> La configuration détaillée de la chaîne YouTube est dans **`10-chaine-youtube-configuration.md`**** et celle de TikTok dans **`11-compte-tiktok-configuration.md`**.
+> La configuration détaillée de la chaîne YouTube est dans **`10-chaine-youtube-configuration.md`** et celle de TikTok dans **`11-compte-tiktok-configuration.md`**.
 
 ---
 
